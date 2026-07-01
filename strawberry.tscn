@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://1iyfxanwjbqv"]
+
+[ext_resource type="Script" uid="uid://bsuq0h3ljdvrv" path="res://strawberry.gd" id="1_e8kwr"]
+[ext_resource type="Texture2D" uid="uid://do8fva45uf5ta" path="res://farmingTilesheetComplete.png" id="1_y1u1h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8kwr"]
+atlas = ExtResource("1_y1u1h")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dlaj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8kwr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1u1h"]
+radius = 6.0
+
+[node name="strawberry" type="StaticBody2D" unique_id=1315637926]
+script = ExtResource("1_e8kwr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=184891459]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_7dlaj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=666898974]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=931109035]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_y1u1h")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

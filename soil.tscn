@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://dq420387p74c"]
+
+[ext_resource type="Texture2D" uid="uid://do8fva45uf5ta" path="res://farmingTilesheetComplete.png" id="1_7d8vc"]
+[ext_resource type="Script" uid="uid://dubolmp2b7p0k" path="res://soil.gd" id="1_cwxc0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwxc0"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(64, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exq6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwxc0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d8vc"]
+size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d8vc"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exq6c"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4iis"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1hd7"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(176, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl3ps"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(160, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0n4e"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(144, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcerc"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(176, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw34e"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tab41"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mktkd"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq4me"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi2y0"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(192, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54dup"]
+atlas = ExtResource("1_7d8vc")
+region = Rect2(176, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcerc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d8vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exq6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4iis")
+}],
+"loop": true,
+"name": &"cabbage_growing",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1hd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl3ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0n4e")
+}],
+"loop": true,
+"name": &"carrots_growing",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcerc")
+}],
+"loop": true,
+"name": &"none",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw34e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tab41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mktkd")
+}],
+"loop": true,
+"name": &"onions_growing",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq4me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi2y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54dup")
+}],
+"loop": true,
+"name": &"strawberry_growing",
+"speed": 0.0
+}]
+
+[node name="Soil" type="StaticBody2D" unique_id=817069559]
+script = ExtResource("1_cwxc0")
+
+[node name="soil" type="AnimatedSprite2D" parent="." unique_id=322193092]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_exq6c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=901611542]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1833483735]
+shape = SubResource("RectangleShape2D_7d8vc")
+
+[node name="plants" type="AnimatedSprite2D" parent="." unique_id=1800181357]
+texture_filter = 1
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_jcerc")
+animation = &"none"
+autoplay = "none"
+
+[node name="carrots_timer" type="Timer" parent="." unique_id=1713722115]
+wait_time = 10.0
+
+[node name="onions_timer" type="Timer" parent="." unique_id=768750666]
+wait_time = 5.0
+
+[node name="strawberry_timer" type="Timer" parent="." unique_id=1298919295]
+wait_time = 20.0
+
+[node name="cabbage_timer" type="Timer" parent="." unique_id=394708392]
+wait_time = 15.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="carrots_timer" to="." method="_on_carrots_timer_timeout"]
+[connection signal="timeout" from="onions_timer" to="." method="_on_onions_timer_timeout"]
+[connection signal="timeout" from="strawberry_timer" to="." method="_on_strawberry_timer_timeout"]
+[connection signal="timeout" from="cabbage_timer" to="." method="_on_cabbage_timer_timeout"]
